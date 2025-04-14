@@ -1,0 +1,19 @@
+
+#Ambiente virtual
+AmbienteAEM/
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+
+# Django
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+
+# VSCode
+.vscode/
