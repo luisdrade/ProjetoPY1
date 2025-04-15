@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'orcamentos',
     'projeto',
     'servicos',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
