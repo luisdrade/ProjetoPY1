@@ -4,7 +4,7 @@ from .models import Cliente
 class clienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = '__all__'
+        fields = ['id', 'nome', 'email', 'telefone', 'empresa']
         
     def validate_nome(self, value):
         if len(value) < 3:
