@@ -4,7 +4,7 @@ from .models import Designer
 class designerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Designer
-        fields = '__all__'
+        fields = ['id', 'name', 'especialidade', 'email']
         
     def validade_especialidade(self, value):
         if not value:

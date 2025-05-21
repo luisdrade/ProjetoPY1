@@ -4,7 +4,7 @@ from .models import Servicos
 class servicoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Servicos
-        fields = '__all__'
+        fields = ['id', 'nome', 'tipo','descricao', 'preco_base']
 
     def validate_preco_base(self, value):
         if value < 50:

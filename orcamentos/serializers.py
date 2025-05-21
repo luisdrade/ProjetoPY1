@@ -4,7 +4,7 @@ from .models import Orcamentos
 class orcamentosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Orcamentos
-        fields = '__all__'
+        fields = ['projeto', 'servicos', 'valor_total', 'aprovado', 'criado_em']
         
     def validade_valor_total(self, value):
         if value <= 0:
