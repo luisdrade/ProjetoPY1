@@ -1,10 +1,21 @@
 from rest_framework import serializers
 from .models import Orcamentos
+from projeto.models import Projeto
+from servicos.models import Servicos
 
 class orcamentosSerializer(serializers.ModelSerializer):
+    nome_projeto = serializers.SerializerMethodField()
+    nomes_servicos = serializers.SerializerMethodField()
+    
     class Meta:
         model = Orcamentos
-        fields = ['projeto', 'servicos', 'valor_total', 'aprovado', 'criado_em']
+        fields = ['id','projeto', 'nome_projeto', 'nomes_servicos', 'servicos', 'valor_total', 'aprovado', 'criado_em']
+        
+    def get_nome_projeto(self, obj):
+        return obj.projeto.titulo  
+
+    def get_nomes_servicos(self, obj):
+        return [servico.nome for servico in obj.servicos.all()]
         
     def validade_valor_total(self, value):
         if value <= 0:
