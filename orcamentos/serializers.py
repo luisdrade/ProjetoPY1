@@ -21,3 +21,7 @@ class orcamentosSerializer(serializers.ModelSerializer):
         if value <= 0:
             raise serializers.ValidationError("O valor total tem que ser maior que zero")
         return value
+    def validate_projeto(self, value):
+        if Orcamentos.objects.filter(projeto=value).exists():
+            raise serializers.ValidationError("Já existe um orçamento cadastrado para esse projeto.")
+        return value
